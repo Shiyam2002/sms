@@ -19,8 +19,8 @@ export default function ApprovalRequests() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Training Approval */}
-        <Card className="shadow-md rounded-lg border border-gray-200 w-full max-w-2xl mx-auto">
-          <CardHeader className="bg-gray-100 rounded-t-lg">
+        <Card className="shadow-md rounded-lg border border-blue-100 w-full max-w-2xl mx-auto">
+          <CardHeader className="bg-blue-400 rounded-t-lg">
             <CardTitle className="text-lg font-semibold text-gray-700">Training Requests</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
@@ -38,7 +38,7 @@ export default function ApprovalRequests() {
                     <Button variant="secondary" size="sm" className="flex-1 md:flex-none">
                       View Profile
                     </Button>
-                    <Button variant="outline" size="sm" className="flex-1 md:flex-none">
+                    <Button variant="outline" size="sm" className="flex-1 md:flex-none hover:bg-green-700 hover:text-white">
                       Approve
                     </Button>
                     <Button variant="destructive" size="sm" className="flex-1 md:flex-none">
@@ -52,8 +52,8 @@ export default function ApprovalRequests() {
         </Card>
 
         {/* Assessment Approval */}
-        <Card className="shadow-md rounded-lg border border-gray-200 w-full max-w-2xl mx-auto">
-          <CardHeader className="bg-gray-100 rounded-t-lg">
+        <Card className="shadow-md rounded-lg border border-blue-100 w-full max-w-2xl mx-auto">
+          <CardHeader className="bg-blue-400 rounded-t-lg">
             <CardTitle className="text-lg font-semibold text-gray-700">Assessment Approvals</CardTitle>
           </CardHeader>
           <CardContent className="p-6">
@@ -71,7 +71,7 @@ export default function ApprovalRequests() {
                     <Button variant="secondary" size="sm" className="flex-1 md:flex-none">
                       View Profile
                     </Button>
-                    <Button variant="outline" size="sm" className="flex-1 md:flex-none">
+                    <Button variant="outline" size="sm" className="flex-1 md:flex-none hover:bg-green-700 hover:text-white">
                       Approve
                     </Button>
                     <Button variant="destructive" size="sm" className="flex-1 md:flex-none">

@@ -1,84 +1,63 @@
-"use client"
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import the router
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useToast } from "@/components/ui/use-toast"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+export function SignupForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-// This should ideally be in a separate file and use a more persistent storage method
-const users: { email: string; password: string; role: string }[] = []
+  const router = useRouter(); // Initialize the router
 
-export function SignUpForm() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [role, setRole] = useState("")
-  const router = useRouter()
-  const { toast } = useToast()
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Check if user already exists
-    if (users.some((user) => user.email === email)) {
-      toast({
-        title: "Error",
-        description: "A user with this email already exists.",
-        variant: "destructive",
-      })
-      return
-    }
-    // Add new user
-    users.push({ email, password, role })
-    toast({
-      title: "Account created",
-      description: "Your account has been created successfully. Please log in.",
-    })
-    router.push("/")
-  }
+    e.preventDefault();
+    console.log("User signed up:", formData);
+
+    // Redirect to the employee details page
+    router.push("/employee-details");
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md">
-      <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
-        <Input
-          id="password"
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="role">Role</Label>
-        <Select onValueChange={setRole} required>
-          <SelectTrigger>
-            <SelectValue placeholder="Select your role" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="employee">Employee</SelectItem>
-            <SelectItem value="manager">Manager</SelectItem>
-            <SelectItem value="owner">Owner</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-      <Button type="submit" className="w-full">
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <input
+        type="text"
+        name="name"
+        placeholder="Full Name"
+        className="w-full px-4 py-2 border rounded-lg text-black"
+        value={formData.name}
+        onChange={handleChange}
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        className="w-full px-4 py-2 border rounded-lg text-black"
+        value={formData.email}
+        onChange={handleChange}
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        className="w-full px-4 py-2 border rounded-lg text-bl"
+        value={formData.password}
+        onChange={handleChange}
+        required
+      />
+      <button
+        type="submit"
+        className="bg-[#05387D] text-white px-4 py-2 rounded-lg w-full font-semibold hover:bg-blue-700 transition"
+      >
         Sign Up
-      </Button>
+      </button>
     </form>
-  )
+  );
 }
-

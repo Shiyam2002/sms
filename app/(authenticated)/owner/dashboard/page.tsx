@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { RiArrowRightSLine } from "react-icons/ri";
+import { FaChartPie, FaChartLine, FaClock, FaStar, FaCogs, FaTools, FaComment } from "react-icons/fa";
 
 export default function OwnerDashboard() {
   return (
@@ -32,10 +34,10 @@ export default function OwnerDashboard() {
         {/* Training ROI */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Training ROI</CardTitle>
+            <CardTitle className="text-sm font-medium">Technology Used</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">15%</div>
+            <div className="text-2xl font-bold">15</div>
           </CardContent>
         </Card>
 
@@ -50,46 +52,49 @@ export default function OwnerDashboard() {
         </Card>
       </div>
 
-      {/* More Useful Metrics */}
+      {/* Skill-Based Insights */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {/* Financial Overview */}
+        {/* Skill Distribution */}
         <Card>
           <CardHeader>
-            <CardTitle>Financial Overview</CardTitle>
+            <CardTitle>Skill Distribution</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="text-sm space-y-2">
-              <li>💰 Revenue: $500,000</li>
-              <li>💸 Expenses: $350,000</li>
-              <li>📈 Profit: $150,000</li>
+              <li className="flex items-center gap-2"> JavaScript - 30%</li>
+              <Progress value={30} className="my-2 bg-gray-200 [&>div]:bg-[#05387D]" />
+              <li className="flex items-center gap-2"> Python - 25%</li>
+              <Progress value={25} className="my-2 bg-gray-200 [&>div]:bg-[#05387D]"/>
+              <li className="flex items-center gap-2"> Java - 20%</li>
+              <Progress value={20} className="my-2 bg-gray-200 [&>div]:bg-[#05387D]"/>
             </ul>
           </CardContent>
         </Card>
 
-        {/* Operational Metrics */}
+        {/* Skill Growth & Training Effectiveness */}
         <Card>
           <CardHeader>
-            <CardTitle>Operational Metrics</CardTitle>
+            <CardTitle>Skill Growth & Training</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="text-sm space-y-2">
-              <li>⏳ Average Project Completion Time: 8 weeks</li>
-              <li>⚙️ Efficiency: 90%</li>
-              <li>🛠 Upcoming Projects: 5</li>
+              <li className="flex items-center gap-2"><RiArrowRightSLine /> 40% Employees Upskilled</li>
+              <li className="flex items-center gap-2"><RiArrowRightSLine /> Avg. Training Time: 15 Hours</li>
+              <li className="flex items-center gap-2"><RiArrowRightSLine /> 85% Training Effectiveness</li>
             </ul>
           </CardContent>
         </Card>
 
-        {/* Client Feedback & Satisfaction */}
+        {/* Skill Gaps & High-Demand Skills */}
         <Card>
           <CardHeader>
-            <CardTitle>Client Feedback & Satisfaction</CardTitle>
+            <CardTitle>Skill Gaps & In-Demand Skills</CardTitle>
           </CardHeader>
           <CardContent>
             <ul className="text-sm space-y-2">
-              <li>⭐ 4.5/5 Average Rating</li>
-              <li>📊 90% Clients Satisfied</li>
-              <li>💬 "Excellent service" - Client A</li>
+              <li className="flex items-center gap-2"><RiArrowRightSLine /> AI/ML - 5 Employees Needed</li>
+              <li className="flex items-center gap-2"><RiArrowRightSLine /> Cloud Computing - 8 Employees Needed</li>
+              <li className="flex items-center gap-2"><RiArrowRightSLine /> "Need more DevOps Engineers" - Project Manager</li>
             </ul>
           </CardContent>
         </Card>
@@ -103,7 +108,9 @@ export default function OwnerDashboard() {
             <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
-            <Button className="w-full">Assign Employees to Projects</Button>
+            <Button className="w-full" style={{ backgroundColor: "#05387D", color: "white" }}>
+              Assign Employees to Projects
+            </Button>
           </CardContent>
         </Card>
 
@@ -113,7 +120,9 @@ export default function OwnerDashboard() {
             <CardTitle>Start New Project</CardTitle>
           </CardHeader>
           <CardContent>
-            <Button className="w-full">Create Project</Button>
+            <Button className="w-full" style={{ backgroundColor: "#05387D", color: "white" }}>
+              Create Project
+            </Button>
           </CardContent>
         </Card>
       </div>

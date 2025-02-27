@@ -145,36 +145,170 @@ export default function EmployeeList() {
       {/* Add Employee Modal */}
       {isAddEmployeeOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg w-1/3">
+        <div className="bg-white p-8 rounded-lg w-full max-w-lg shadow-xl max-h-[85vh] overflow-y-auto relative">
+      
+          {/* Fixed Header */}
+          <div className="sticky top-0 bg-white z-10 border-b pb-4 mb-6">
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-semibold">Add Employee</h2>
-              <button onClick={() => setIsAddEmployeeOpen(false)}>
-                <X size={20} />
+              <h2 className="text-2xl font-semibold text-gray-800">Add Employee</h2>
+              <button
+                onClick={() => setIsAddEmployeeOpen(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X size={24} />
               </button>
             </div>
-            {/* Add Employee Form Here */}
           </div>
+      
+          {/* Employee Form */}
+          <form className="space-y-6">
+      
+            {/* Employee Number */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Employee Number</label>
+              <input
+                type="text"
+                placeholder="Enter employee number"
+                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+              />
+            </div>
+      
+            {/* Full Name */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Full Name</label>
+              <input
+                type="text"
+                placeholder="Enter full name"
+                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+              />
+            </div>
+      
+            {/* Email */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Email</label>
+              <input
+                type="email"
+                placeholder="Enter email"
+                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+              />
+            </div>
+      
+            {/* Phone Number */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+              <input
+                type="tel"
+                placeholder="Enter phone number"
+                className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+              />
+            </div>
+      
+            {/* Two-column Layout */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Department */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Department</label>
+                <select className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300">
+                  <option>Select Department</option>
+                  <option>HR</option>
+                  <option>IT</option>
+                  <option>Finance</option>
+                  <option>Marketing</option>
+                </select>
+              </div>
+      
+              {/* Designation */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Designation</label>
+                <input
+                  type="text"
+                  placeholder="Enter designation"
+                  className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+                />
+              </div>
+            </div>
+      
+            {/* Experience & Joining Date in Two Columns */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Experience */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Experience (in years)</label>
+                <input
+                  type="number"
+                  placeholder="Enter experience"
+                  className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+                />
+              </div>
+      
+              {/* Joining Date */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Joining Date</label>
+                <input
+                  type="date"
+                  className="mt-1 block w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+                />
+              </div>
+            </div>
+      
+            {/* Buttons */}
+            <div className="flex justify-end space-x-4 mt-6">
+              <button
+                type="button"
+                onClick={() => setIsAddEmployeeOpen(false)}
+                className="px-6 py-2 bg-gray-300 rounded-lg text-gray-700 hover:bg-gray-400 transition"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              >
+                Submit
+              </button>
+            </div>
+      
+          </form>
         </div>
+      </div>
       )}
 
       {/* Requests List Modal */}
       {isRequestListOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg w-1/3">
-            <div className="flex justify-between items-center">
-              <h2 className="text-xl font-semibold">Join Requests</h2>
-              <button onClick={() => setIsRequestListOpen(false)}>
-                <X size={20} />
-              </button>
-            </div>
-            {/* Join Requests List Here */}
-            {newJoinRequests.map((request) => (
-              <div key={request.id} className="border-b py-2">
-                <p>{request.name} - {request.role}</p>
-              </div>
-            ))}
+        <div className="bg-white p-8 rounded-lg w-full max-w-lg shadow-xl relative">
+          <div className="flex justify-between items-center border-b pb-4">
+            <h2 className="text-2xl font-semibold text-gray-800">New Join Requests</h2>
+            <button onClick={() => setIsRequestListOpen(false)} className="text-gray-500 hover:text-gray-700">
+              <X size={24} />
+            </button>
+          </div>
+  
+          <div className="mt-4">
+            {newJoinRequests.length === 0 ? (
+              <p className="text-gray-500 text-center">No new requests.</p>
+            ) : (
+              newJoinRequests.map((request) => (
+                <div key={request.id} className="p-4 border rounded-lg shadow-md mb-4 flex items-center space-x-4">
+                  <img src={request.dp} alt={request.name} className="w-14 h-14 rounded-full border" />
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold">{request.name}</h3>
+                    <p className="text-sm text-gray-500">{request.role} - {request.primarySkill}</p>
+                    <p className="text-sm text-gray-500">⏳ {request.experience} Years</p>
+                  </div>
+                  <div className="flex space-x-2">
+                    <button className="px-3 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600">
+                      View Details
+                    </button>
+                    <button className="px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600">
+                      Reject
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
+      </div>
       )}
     </div>
   );

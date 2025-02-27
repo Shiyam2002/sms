@@ -1,0 +1,22 @@
+<svg
+  width="200"
+  height="200"
+  viewBox="0 0 200 200"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" stroke="#05387D" stroke-width="10" fill="none" />
+
+  <!-- Person Icon -->
+  <circle cx="100" cy="70" r="20" fill="#05387D" />
+  <path d="M70 120 Q100 90, 130 120" stroke="#05387D" stroke-width="8" stroke-linecap="round" fill="none" />
+
+  <!-- Skill Gear -->
+  <circle cx="160" cy="140" r="18" stroke="#05387D" stroke-width="6" fill="none" />
+  <path d="M160 120 V130 M160 150 V160 M140 140 H150 M170 140 H180 M148 128 L154 134 M166 146 L172 152 M148 152 L154 146 M166 134 L172 128" 
+        stroke="#05387D" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Arrow representing progress -->
+  <path d="M80 140 L120 140 L130 130 M130 140 L120 130" stroke="#05387D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

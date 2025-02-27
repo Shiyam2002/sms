@@ -52,22 +52,22 @@ export function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md">
+    <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md ">
       <div className="space-y-2">
-        <Label htmlFor="role">Quick Login (Optional)</Label>
+        <Label htmlFor="role" className="text-[#05387D]">Quick Login (Optional)</Label>
         <Select onValueChange={setDefaultCredentials}>
-          <SelectTrigger>
+          <SelectTrigger className="border-[#05387D] text-[#05387D]">
             <SelectValue placeholder="Select a role for quick login" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="employee">Employee</SelectItem>
-            <SelectItem value="manager">Manager</SelectItem>
-            <SelectItem value="owner">Owner</SelectItem>
+          <SelectContent className="border-[#05387D] text-[#05387D]">
+            <SelectItem value="employee" className="text-[#05387D]">Employee</SelectItem>
+            <SelectItem value="manager" className="text-[#05387D]">Manager</SelectItem>
+            <SelectItem value="owner" className="text-[#05387D]">Owner</SelectItem>
           </SelectContent>
         </Select>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email" className="text-[#05387D] font-bold text-xl">Email</Label>
         <Input
           id="email"
           type="email"
@@ -75,10 +75,11 @@ export function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          className="border-[#05387D] text-[#05387D] placeholder-[#05387D]/50 text-2xl "
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password" className="text-[#05387D] font-bold text-xl">Password</Label>
         <Input
           id="password"
           type="password"
@@ -86,12 +87,12 @@ export function LoginForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className="border-[#05387D] text-[#05387D] placeholder-[#05387D]/50 text-2xl "
         />
       </div>
-      <Button type="submit" className="w-full">
+      <Button type="submit" className="w-full bg-[#05387D] text-white hover:bg-[#042b63] border-[#05387D]">
         Login
       </Button>
     </form>
   )
 }
-
