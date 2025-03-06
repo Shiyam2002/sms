@@ -15,28 +15,31 @@ interface Employee {
   email: string;
   phone: string;
   location: string;
+  managerId: number | null;
 }
 
 const initialEmployees: Employee[] = [
-  { id: 1, name: "Alice Johnson", role: "Manager", primarySkill: "Leadership", experience: 10, dp: "https://i.pravatar.cc/150?img=20", email: "alice@example.com", phone: "+1 234 567 890", location: "New York, USA" },
-  { id: 2, name: "Bob Williams", role: "Employee", primarySkill: "React.js", experience: 3, dp: "https://i.pravatar.cc/150?img=21", email: "bob@example.com", phone: "+1 987 654 321", location: "San Francisco, USA" },
-  { id: 3, name: "Charlie Adams", role: "Manager", primarySkill: "Project Management", experience: 8, dp: "https://i.pravatar.cc/150?img=22", email: "charlie@example.com", phone: "+1 555 678 999", location: "Seattle, USA" },
-  { id: 4, name: "David Smith", role: "Employee", primarySkill: "Node.js", experience: 5, dp: "https://i.pravatar.cc/150?img=23", email: "david@example.com", phone: "+1 444 555 666", location: "Austin, USA" },
-  { id: 5, name: "Emma Watson", role: "Manager", primarySkill: "Agile Coaching", experience: 12, dp: "https://i.pravatar.cc/150?img=24", email: "emma@example.com", phone: "+1 777 888 999", location: "Boston, USA" },
-  { id: 6, name: "Frank Miller", role: "Employee", primarySkill: "Python", experience: 4, dp: "https://i.pravatar.cc/150?img=25", email: "frank@example.com", phone: "+1 222 333 444", location: "Los Angeles, USA" },
-  { id: 7, name: "Grace Hall", role: "Employee", primarySkill: "Java", experience: 6, dp: "https://i.pravatar.cc/150?img=26", email: "grace@example.com", phone: "+1 666 777 888", location: "Chicago, USA" },
-  { id: 8, name: "Henry Wilson", role: "Manager", primarySkill: "Cloud Architecture", experience: 14, dp: "https://i.pravatar.cc/150?img=27", email: "henry@example.com", phone: "+1 999 000 111", location: "Houston, USA" },
-  { id: 9, name: "Isabella Moore", role: "Employee", primarySkill: "UI/UX Design", experience: 7, dp: "https://i.pravatar.cc/150?img=28", email: "isabella@example.com", phone: "+1 333 444 555", location: "Denver, USA" },
-  { id: 10, name: "Jack Brown", role: "Employee", primarySkill: "Cybersecurity", experience: 9, dp: "https://i.pravatar.cc/150?img=29", email: "jack@example.com", phone: "+1 111 222 333", location: "San Diego, USA" },
-  { id: 11, name: "Katherine Lee", role: "Manager", primarySkill: "Data Science", experience: 11, dp: "https://i.pravatar.cc/150?img=30", email: "katherine@example.com", phone: "+1 444 555 666", location: "Atlanta, USA" },
-  { id: 12, name: "Liam Harris", role: "Employee", primarySkill: "DevOps", experience: 5, dp: "https://i.pravatar.cc/150?img=31", email: "liam@example.com", phone: "+1 666 777 888", location: "Miami, USA" },
-  { id: 13, name: "Mia Clark", role: "Manager", primarySkill: "Product Management", experience: 13, dp: "https://i.pravatar.cc/150?img=32", email: "mia@example.com", phone: "+1 777 888 999", location: "Dallas, USA" },
-  { id: 14, name: "Nathan Roberts", role: "Employee", primarySkill: "Blockchain", experience: 3, dp: "https://i.pravatar.cc/150?img=33", email: "nathan@example.com", phone: "+1 888 999 000", location: "Portland, USA" },
-  { id: 15, name: "Olivia Martin", role: "Employee", primarySkill: "QA Testing", experience: 6, dp: "https://i.pravatar.cc/150?img=34", email: "olivia@example.com", phone: "+1 999 111 222", location: "Phoenix, USA" },
+  // Managers (managerId: null)
+  { id: 1, name: "Arun Sundar", role: "Manager", primarySkill: "Leadership", experience: 10, dp: "https://i.pravatar.cc/150?img=13", email: "arun@example.com", phone: "+91 98765 43210", location: "சென்னை, இந்தியா (Chennai, India)", managerId: null },
+  { id: 3, name: "Krishnan Bala", role: "Manager", primarySkill: "Project Management", experience: 8, dp: "https://i.pravatar.cc/150?img=14", email: "krishnan@example.com", phone: "+91 87654 32109", location: "மதுரை, இந்தியா (Madurai, India)", managerId: null },
+  { id: 5, name: "Latha Ravi", role: "Manager", primarySkill: "Agile Coaching", experience: 12, dp: "https://i.pravatar.cc/150?img=15", email: "latha@example.com", phone: "+91 76543 21098", location: "கோயம்புத்தூர், இந்தியா (Coimbatore, India)", managerId: null },
+
+  // Employees (linked to managers)
+  { id: 2, name: "Murali Raja", role: "Employee", primarySkill: "React.js", experience: 3, dp: "https://i.pravatar.cc/150?img=16", email: "murali@example.com", phone: "+91 65432 10987", location: "Trichy, India", managerId: 1 },
+  { id: 4, name: "Chandran Selvam", role: "Employee", primarySkill: "Node.js", experience: 5, dp: "https://i.pravatar.cc/150?img=17", email: "chandran@example.com", phone: "+91 54321 09876", location: "Salem, India", managerId: 3 },
+  { id: 6, name: "Naresh Anand", role: "Employee", primarySkill: "Python", experience: 4, dp: "https://i.pravatar.cc/150?img=18", email: "naresh@example.com", phone: "+91 43210 98765", location: "Thanjavur, India", managerId: 5 },
+  { id: 7, name: "Dharani Prabu", role: "Employee", primarySkill: "Java", experience: 6, dp: "https://i.pravatar.cc/150?img=19", email: "dharani@example.com", phone: "+91 32109 87654", location: "Vellore, India", managerId: 1 },
+  { id: 8, name: "Mohan Kumar", role: "Employee", primarySkill: "DevOps", experience: 7, dp: "https://i.pravatar.cc/150?img=20", email: "mohan@example.com", phone: "+91 21098 76543", location: "Ramanathapuram, India", managerId: 3 },
+  { id: 9, name: "Santhi Venkatesh", role: "Employee", primarySkill: "Cybersecurity", experience: 9, dp: "https://i.pravatar.cc/150?img=21", email: "santhi@example.com", phone: "+91 10987 65432", location: "Nagercoil, India", managerId: 5 },
+  { id: 10, name: "Vignesh Arun", role: "Employee", primarySkill: "Full Stack", experience: 5, dp: "https://i.pravatar.cc/150?img=22", email: "vignesh@example.com", phone: "+91 09876 54321", location: "Thoothukudi, India", managerId: 1 },
+  { id: 11, name: "Keerthana Mohan", role: "Employee", primarySkill: "Testing", experience: 4, dp: "https://i.pravatar.cc/150?img=23", email: "keerthana@example.com", phone: "+91 98765 43210", location: "Tiruppur, India", managerId: 3 },
+  { id: 12, name: "Aadhi Karthik", role: "Employee", primarySkill: "Data Science", experience: 6, dp: "https://i.pravatar.cc/150?img=24", email: "aadhi@example.com", phone: "+91 87654 32109", location: "Cuddalore, India", managerId: 5 },
 ];
 
+
+
 const newJoinRequests: Employee[] = [
-  { id: 3, name: "Charlie Adams", role: "Manager", primarySkill: "Project Management", experience: 8, dp: "https://i.pravatar.cc/150?img=22", email: "charlie@example.com", phone: "+1 555 678 999", location: "Seattle, USA" }
+  { id: 15, name: "Charlie Adams", role: "Manager", primarySkill: "Project Management", experience: 8, dp: "https://i.pravatar.cc/150?img=22", email: "charlie@example.com", phone: "+1 555 678 999", location: "Seattle, USA", managerId: null }
 ];
 
 export default function OwnerPage() {
@@ -49,6 +52,8 @@ export default function OwnerPage() {
   const [roleFilter, setRoleFilter] = useState<"All" | "Manager" | "Employee">("All");
   const [employees, setEmployees] = useState<Employee[]>(initialEmployees);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedManager, setSelectedManager] = useState<number | null>(null);
+
 
   const filteredEmployees = employees
     .filter(emp =>
@@ -76,6 +81,14 @@ export default function OwnerPage() {
         emp.experience.toString().includes(term)
       )
     )
+    .filter(emp =>
+      (selectedManager === null || emp.managerId === selectedManager) &&  // New filter condition
+      search.toLowerCase().split(" ").every(term =>
+        emp.name.toLowerCase().includes(term) ||
+        emp.primarySkill.toLowerCase().includes(term) ||
+        emp.experience.toString().includes(term)
+      )
+    );
 
   const handleEmployeeCardClick = (empId: number) => {
     setSelectedEmployee(selectedEmployee === empId ? null : empId);
@@ -138,6 +151,24 @@ export default function OwnerPage() {
                 </div>
               )}
             </div>
+
+            <div className="relative">
+              <select
+                className="border rounded px-1 py-2"
+                value={selectedManager || ""}
+                onChange={(e) => setSelectedManager(e.target.value ? Number(e.target.value) : null)}
+              >
+                <option value="">All Managers</option>
+                {employees
+                  .filter((emp) => emp.role === "Manager")
+                  .map((manager) => (
+                    <option key={manager.id} value={manager.id}>
+                      {manager.name}
+                    </option>
+                  ))}
+              </select>
+            </div>
+
 
             {/* Add Employee Button */}
             <button onClick={() => setIsAddEmployeeOpen(true)} className="ml-auto p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">
